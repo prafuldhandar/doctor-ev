@@ -1,0 +1,21 @@
+{
+  "name": "ev-care-assist",
+  "version": "1.0.0",
+  "description": "On-Demand Electric Vehicle Repair & Support Platform",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "keywords": ["ev", "electric-vehicle", "repair", "service"],
+  "author": "Student Intern",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

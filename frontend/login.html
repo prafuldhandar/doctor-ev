@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - EV Care Assist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">EV Care Assist</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="howitworks.html">How It Works</a></li>
+        <li><a href="book.html">Book Service</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" id="adminLink">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero" style="padding: 48px 24px;">
+    <h1>Login</h1>
+    <p>Access your account</p>
+  </div>
+
+  <div class="form-container">
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+
+      <button type="submit" class="btn" style="width: 100%;">Login</button>
+      
+      <p style="text-align: center; margin-top: 24px; color: var(--text-secondary);">
+        Don't have an account? <a href="register.html" style="color: var(--secondary); text-decoration: none; font-weight: 600;">Register here</a>
+      </p>
+    </form>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>EV Care Assist</h3>
+          <p>Professional electric vehicle repair and support services across India.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="services.html">Services</a>
+          <a href="howitworks.html">How It Works</a>
+          <a href="book.html">Book Service</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: support@evcareassist.com</p>
+          <p>Phone: +91-XXXXXXXXXX</p>
+          <p>Available 24/7</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 EV Care Assist. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

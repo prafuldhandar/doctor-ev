@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - EV Care Assist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">EV Care Assist</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="howitworks.html">How It Works</a></li>
+        <li><a href="book.html">Book Service</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="admin.html">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero" style="padding: 48px 24px;">
+    <h1>Admin Dashboard</h1>
+    <p>Manage and monitor all service requests</p>
+  </div>
+
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card">
+        <h3>Total Requests</h3>
+        <div class="stat-value" id="totalRequests">0</div>
+      </div>
+      <div class="stat-card">
+        <h3>Pending</h3>
+        <div class="stat-value" id="pendingRequests">0</div>
+      </div>
+      <div class="stat-card">
+        <h3>In Progress</h3>
+        <div class="stat-value" id="progressRequests">0</div>
+      </div>
+      <div class="stat-card">
+        <h3>Completed</h3>
+        <div class="stat-value" id="completedRequests">0</div>
+      </div>
+    </div>
+
+    <div class="admin-container">
+      <div class="admin-header">
+        <h2>Service Requests</h2>
+        <button id="refreshBtn" class="btn btn-secondary">Refresh Data</button>
+      </div>
+
+      <div class="filters">
+        <input type="text" id="searchInput" placeholder="Search by name, email, or phone...">
+        <select id="statusFilter">
+          <option value="">All Status</option>
+          <option value="Pending">Pending</option>
+          <option value="Assigned">Assigned</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Completed">Completed</option>
+        </select>
+        <select id="problemFilter">
+          <option value="">All Problems</option>
+          <option value="Battery Issue">Battery Issue</option>
+          <option value="Charging Problem">Charging Problem</option>
+          <option value="Motor Issue">Motor Issue</option>
+          <option value="Software Update">Software Update</option>
+          <option value="Brake System">Brake System</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div id="loading" class="loading" style="display: none;">
+        Loading service requests...
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Customer Name</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th>EV Model</th>
+              <th>Problem Type</th>
+              <th>Location</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="requestsTableBody">
+            <tr>
+              <td colspan="9" style="text-align: center;">Loading...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>EV Care Assist</h3>
+          <p>Professional electric vehicle repair and support services across India.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="services.html">Services</a>
+          <a href="howitworks.html">How It Works</a>
+          <a href="book.html">Book Service</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: support@evcareassist.com</p>
+          <p>Phone: +91-XXXXXXXXXX</p>
+          <p>Available 24/7</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 EV Care Assist. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

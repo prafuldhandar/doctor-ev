@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Service - EV Care Assist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">EV Care Assist</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="howitworks.html">How It Works</a></li>
+        <li><a href="book.html">Book Service</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" id="adminLink">Admin</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="hero" style="padding: 48px 24px;">
+    <h1>Book EV Service</h1>
+    <p>Fill in the details and we'll get back to you shortly</p>
+  </div>
+
+  <div class="form-container">
+    <form id="bookingForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="10-digit mobile number" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="evModel">EV Model</label>
+        <input type="text" id="evModel" name="evModel" placeholder="e.g., Tata Nexon EV, MG ZS EV" required>
+      </div>
+
+      <div class="form-group">
+        <label for="problemType">Problem Type</label>
+        <select id="problemType" name="problemType" required>
+          <option value="">Select Problem Type</option>
+          <option value="Battery Issue">Battery Issue</option>
+          <option value="Charging Problem">Charging Problem</option>
+          <option value="Motor Issue">Motor Issue</option>
+          <option value="Software Update">Software Update</option>
+          <option value="Brake System">Brake System</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="location">Service Location</label>
+        <input type="text" id="location" name="location" placeholder="Enter your address" required>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Problem Description (Optional)</label>
+        <textarea id="description" name="description" placeholder="Describe your issue in detail"></textarea>
+      </div>
+
+      <button type="submit" class="btn" style="width: 100%;">Submit Request</button>
+    </form>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>EV Care Assist</h3>
+          <p>Professional electric vehicle repair and support services across India.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="services.html">Services</a>
+          <a href="howitworks.html">How It Works</a>
+          <a href="book.html">Book Service</a>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <p>Email: support@evcareassist.com</p>
+          <p>Phone: +91-XXXXXXXXXX</p>
+          <p>Available 24/7</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 EV Care Assist. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
