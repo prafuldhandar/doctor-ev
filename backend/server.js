@@ -16,12 +16,30 @@ connectDB();
 // Middleware
 // CORS - Allow frontend to communicate with backend
 app.use(cors({
-  origin: [
-    'https://doctor-ev.vercel.app',
-    'http://localhost:5500',
-    'http://localhost:3000',
-    'http://127.0.0.1:5500'
-  ],
+  origin: function(origin, callback) {
+    const allowedOrigins = [
+      'https://doctor-ev.vercel.app',
+      'https://doctor-evvercel.app',
+      'http://localhost:5500',
+      'http://localhost:3000',
+      'http://127.0.0.1:5500',
+      'http://127.0.0.1:3000'
+    ];
+    
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // Allow all Vercel preview deployments
+    if (origin.includes('vercel.app')) {
+      return callback(null, true);
+    }
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow all for now
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
