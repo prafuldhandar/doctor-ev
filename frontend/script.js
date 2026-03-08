@@ -1,4 +1,29 @@
-const API_URL = 'http://localhost:5000/api';
+const API_URL = 'https://doctor-ev.onrender.com/api';
+const FALLBACK_URL = 'http://localhost:5000/api';
+
+let currentApiUrl = API_URL;
+
+async function testApiConnection() {
+  try {
+    const response = await fetch(API_URL.replace('/api', ''), { 
+      method: 'GET',
+      signal: AbortSignal.timeout(5000)
+    });
+    if (response.ok) {
+      currentApiUrl = API_URL;
+      console.log('Connected to production API:', API_URL);
+      return true;
+    }
+  } catch (error) {
+    console.log('Production API not available, using localhost');
+    currentApiUrl = FALLBACK_URL;
+    return false;
+  }
+}
+
+function getApiUrl() {
+  return currentApiUrl;
+}
 
 let allRequests = [];
 
@@ -88,7 +113,7 @@ async function handleBookingSubmit(event) {
   submitBtn.textContent = 'Submitting...';
   
   try {
-    const response = await fetch(`${API_URL}/book-service`, {
+    const response = await fetch(`${getApiUrl()}/book-service`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -129,7 +154,7 @@ async function loadServiceRequests() {
   try {
     if (loadingDiv) loadingDiv.style.display = 'block';
     
-    const response = await fetch(`${API_URL}/requests`);
+    const response = await fetch(`${getApiUrl()}/requests`);
     const data = await response.json();
     
     if (loadingDiv) loadingDiv.style.display = 'none';
@@ -288,7 +313,7 @@ async function handleRegisterSubmit(event) {
   submitBtn.textContent = 'Registering...';
   
   try {
-    const response = await fetch(`${API_URL}/auth/register`, {
+    const response = await fetch(`${getApiUrl()}/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -356,7 +381,7 @@ async function handleLoginSubmit(event) {
   submitBtn.textContent = 'Logging in...';
   
   try {
-    const response = await fetch(`${API_URL}/auth/login`, {
+    const response = await fetch(`${getApiUrl()}/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -463,7 +488,8 @@ function handleAdminClick() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  await testApiConnection();
   updateNavigation();
   checkAdminAccess();
   
