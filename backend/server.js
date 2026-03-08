@@ -15,7 +15,17 @@ connectDB();
 
 // Middleware
 // CORS - Allow frontend to communicate with backend
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://doctor-ev.vercel.app',
+    'http://localhost:5500',
+    'http://localhost:3000',
+    'http://127.0.0.1:5500'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 // Parse JSON request bodies
 app.use(express.json());

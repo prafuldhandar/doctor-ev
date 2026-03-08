@@ -5,20 +5,37 @@ let currentApiUrl = API_URL;
 
 async function testApiConnection() {
   try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000);
+    
     const response = await fetch(API_URL.replace('/api', ''), { 
       method: 'GET',
-      signal: AbortSignal.timeout(5000)
+      signal: controller.signal
     });
+    
+    clearTimeout(timeoutId);
+    
     if (response.ok) {
       currentApiUrl = API_URL;
       console.log('Connected to production API:', API_URL);
       return true;
     }
   } catch (error) {
-    console.log('Production API not available, using localhost');
-    currentApiUrl = FALLBACK_URL;
-    return false;
+    console.log('Production API not available, trying localhost...');
+    
+    try {
+      const response = await fetch(FALLBACK_URL.replace('/api', ''));
+      if (response.ok) {
+        currentApiUrl = FALLBACK_URL;
+        console.log('Connected to localhost API:', FALLBACK_URL);
+        return true;
+      }
+    } catch (err) {
+      console.error('No API available');
+      currentApiUrl = API_URL;
+    }
   }
+  return false;
 }
 
 function getApiUrl() {
